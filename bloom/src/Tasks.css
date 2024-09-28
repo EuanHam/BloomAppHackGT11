@@ -1,30 +1,48 @@
-.Garden {
-    text-align: center;
-    background-color: #C9E9B2; 
-  }
-  
-  .Tasks-logo {
-    height: 40vmin;
-    pointer-events: none;
-  }
-  
-  @media (prefers-reduced-motion: no-preference) {
-    .Tasks-logo {
-      animation: App-logo-spin infinite 20s linear;
-    }
-  }
-  
-  .Tasks-header {
-    background-color: #C9E9B2; /* Dark background for the header */
-    background-repeat: no-repeat; /* Do not repeat the image */
-    background-size: cover; /* Cover the entire area */
-  
+.Tasks-header {
+    background-color: #C9E9B2;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* Aligns content to the top */
+    justify-content: flex-start;
     font-size: calc(10px + 2vmin);
     color: rgb(0, 0, 0);
-    padding-top: 20px; /* Adds 20px of space from the top */
+    padding-top: 20px;
+    position: relative;
   }
+  
+  .back-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 100px;
+    height: auto;
+    cursor: pointer;
+  }
+  
+  .task-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .task-box {
+    width: 150px;
+    height: 150px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: black;
+    border: 1px solid black;
+    cursor: pointer;
+  }
+  
+  .add-task {
+    font-size: 3rem;
+    font-weight: bold;
+    background-color: #e0e0e0;
+  }
+  
