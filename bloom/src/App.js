@@ -1,12 +1,17 @@
 import './App.css';
-import publix from './images/publix.jpeg';
+import logo from './images/bloomLogo.png';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Heyyyy</h1>
-        <img src={publix} style={{ width: '1800px', height: 'auto' }} />
+        <img src={logo} style={{ width: '900px', height: 'auto' }} alt="Logo" />
+        <h1 style={{ marginTop: '20px' }}>Welcome to Our Website!</h1>
+        <p style={{ marginBottom: '20px' }}>Complete daily mental health tasks and grow your virtual garden.</p>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
+          <button style={{ padding: '10px 20px' }}>Tasks</button>
+          <button style={{ padding: '10px 20px' }}>Garden</button>
+        </div>
       </header>
     </div>
 

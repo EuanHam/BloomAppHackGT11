@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: #8ce077; 
 }
 
 .App-logo {
@@ -14,16 +15,20 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #93f1b2; /* Dark background for the header */
+  background-image: url('./images/meadowBackground.png');
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Cover the entire area */
+
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; /* Aligns content to the top */
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(0, 0, 0);
+  padding-top: 20px; /* Adds 20px of space from the top */
 }
-
 
 @keyframes App-logo-spin {
   from {
