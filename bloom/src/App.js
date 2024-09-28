@@ -1,8 +1,10 @@
 import './App.css';
-import logo from './images/bloomLogoV2.png';
+import logo from './images/bloomLogoV3.png';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Tasks from './Tasks';
+import tasksButton from './images/tasks_button.png';
 import Garden from './Garden';
+import gardenButton from './images/garden_button.png';
 
 
 function App() {
