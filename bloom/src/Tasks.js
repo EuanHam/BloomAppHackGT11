@@ -4,14 +4,20 @@ import backButton from './images/back_button.png';
 import { Link } from 'react-router-dom';
 
 function Tasks() {
-  const [tasks, setTasks] = useState(["Shower", "Meditation", "Drink Water", "Journal"]);
+  const [tasks, setTasks] = useState([{text: "Shower", isCompleted: false }, {text: "Meditation", isCompleted: false }, {text: "Drink Water", isCompleted: false }, {text: "Journal", isCompleted: false }]);
   const [date, setDate] = useState(new Date());
 
   const addTask = () => {
     const newTask = prompt("What task would you like to add?");
     if (newTask) {
-      setTasks([...tasks, newTask]);
+      setTasks([...tasks, { text: newTask, isCompleted: false}]);
     }
+  };
+
+  const toggleTaskCompletion = (index) => {
+    const updatedTasks = [...tasks];
+    updatedTasks[index].isCompleted = !updatedTasks[index].isCompleted;
+    setTasks(updatedTasks);
   };
 
   return (
@@ -23,7 +29,12 @@ function Tasks() {
         <p>Today is {date.toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</p>
         <div className="task-grid">
           {tasks.map((task, index) => (
-            <div key={index} className="task-box">{task}</div>
+            <div key={index}
+            className={`task-box ${task.isCompleted ? 'completed' : ''}`}
+            onClick={() => toggleTaskCompletion(index)}
+            >
+              {task.text}
+              </div>
           ))}
           <div className="task-box add-task" onClick={addTask}>+</div>
         </div>

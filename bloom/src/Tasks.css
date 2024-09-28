@@ -39,6 +39,11 @@
     border: 1px solid black;
     cursor: pointer;
   }
+
+  .completed {
+    text-decoration: line-through;
+    color: grey;
+  }
   
   .add-task {
     font-size: 3rem;
