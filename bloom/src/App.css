@@ -15,8 +15,8 @@
 }
 
 .App-header {
-  background-color: #93f1b2; /* Dark background for the header */
-  background-image: url('./images/meadowBackground.png');
+  background-color: #676f6a; /* Dark background for the header */
+  background-image: url('./images/appBackground.png');
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover; /* Cover the entire area */
 
@@ -26,7 +26,7 @@
   align-items: center;
   justify-content: flex-start; /* Aligns content to the top */
   font-size: calc(10px + 2vmin);
-  color: rgb(0, 0, 0);
+  color: rgb(23, 72, 33);
   padding-top: 20px; /* Adds 20px of space from the top */
 }
 

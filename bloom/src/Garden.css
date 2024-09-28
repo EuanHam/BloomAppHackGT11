@@ -18,7 +18,8 @@
     background-color: #ffffff; /* Dark background for the header */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover; /* Cover the entire area */
-  
+    background-image: url('./images/gardenBackground.png');
+
     min-height: 100vh;
     display: flex;
     flex-direction: column;
