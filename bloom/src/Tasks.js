@@ -36,7 +36,7 @@ function Tasks() {
               {task.text}
               </div>
           ))}
-          <div className="task-box add-task" onClick={addTask}>+</div>
+          <div className="task-box add-task" onClick={addTask}></div>
         </div>
       </header>
     </div>
