@@ -6,11 +6,7 @@ import tasksButton from './images/tasks_button.png';
 import Garden from './Garden';
 import gardenButton from './images/garden_button.png';
 
-
 function App() {
-  const handleClick = e => {
-    e.preventDefault()
-  }
   return (
     // <Router>
       <div className="App">
@@ -19,26 +15,23 @@ function App() {
           <h1 style={{ marginTop: '20px' }}>Welcome to Our Website!</h1>
           <p style={{ marginBottom: '20px' }}>Complete daily mental health tasks and grow your virtual garden.</p>
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
-            <Link to="/tasks" onClick={() => {console.log("Tasks button clicked!")}}>
-              <button style={{ padding: '10px 20px' }}>Tasks</button>
+            <Link to="/tasks" onClick={() => { console.log("Tasks button clicked!") }}>
+              <img src={tasksButton} alt="Tasks Button" style={{ width: '150px', height: 'auto', cursor: 'pointer' }} />
             </Link>
             <Link to="/garden" onClick={() => console.log("Garden button clicked!")}>
-              <button style={{ padding: '10px 20px' }}>Garden</button>
+              <img src={gardenButton} alt="Garden Button" style={{ width: '150px', height: 'auto', cursor: 'pointer' }} />
             </Link>
-
-            {/* <Button onClick={handleClick}>Hi</Button> */}
           </div>
         </header>
-      </div>);
-
-      
-      {/* <Routes>
+      </div>
+      /* 
+      <Routes>
         <Route path="/tasks" element={<Tasks />} />
         <Route path="/garden" element={<Garden />} />
       </Routes>
-    </Router> */}
-  
+      </Router> 
+      */
+  );
 }
-
 
 export default App;
