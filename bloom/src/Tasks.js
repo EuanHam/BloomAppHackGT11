@@ -17,9 +17,12 @@ function Tasks() {
   });
 
   const [date, setDate] = useState(new Date());
+  const [completedCount, setCompletedCount] = useState(0); // State for counting completed tasks
 
-  // Save tasks to localStorage whenever they change
+  // Update completed tasks count whenever tasks change
   useEffect(() => {
+    const count = tasks.filter(task => task.isCompleted).length;
+    setCompletedCount(count);
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
@@ -55,7 +58,7 @@ function Tasks() {
         {/* Task Counter with Background Image */}
         <div className="counter-container">
           <img src={counterBackground} alt="Counter Background" className="counter-background" />
-          <span className="counter-text">{tasks.length}</span>
+          <span className="counter-text">{completedCount} / {tasks.length}</span> {/* Updated Counter */}
         </div>
         
         <div className="task-grid">
@@ -75,7 +78,7 @@ function Tasks() {
               />
             </div>
           ))}
-          <div className="task-box add-task" onClick={addTask}>+</div>
+          <div className="task-box add-task" onClick={addTask}></div>
         </div>
       </header>
     </div>

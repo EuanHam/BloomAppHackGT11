@@ -3,13 +3,21 @@ import './Garden.css';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import backButton from './images/back_button.png';
 import potImage from './images/flower_pot.png';
+import stage1Image from './images/stage1.png';  // Example stage 1 image
+import stage2Image from './images/stage2.png';  // Example stage 2 image
+import stage25Image from './images/stage2.5.png';  // Example stage 2.5 image
+import tulipHead from './images/tulipHead.png';
+import sunflower from './images/sunflower.png';
+import daisyHead from './images/daisyHead.png';
 
 function Garden() {
+  // Hardcode the level for testing
+  const level = 2; // Change this value to test different levels
 
   const [pots, setPots] = useState([
-    { id: 1, position: '20%', size: 300, flower: ''}, // Pot 1 at 20%
-    { id: 2, position: '50%', size: 300, flower: ''}, // Pot 2 at 50%
-    { id: 3, position: '80%', size: 300, flower: '' }, // Pot 3 at 80%
+    { id: 1, position: '20%', size: 300, flower: '', level }, // Pot 1
+    { id: 2, position: '50%', size: 300, flower: '', level }, // Pot 2
+    { id: 3, position: '80%', size: 300, flower: '', level }, // Pot 3
   ]);
 
   const [selectedPot, setSelectedPot] = useState(null);
@@ -21,7 +29,7 @@ function Garden() {
   const handleFlowerSelect = (flower) => {
     setPots((prevPots) =>
       prevPots.map((pot) =>
-        pot.id === selectedPot.id ? { ...pot, flower } : pot
+        pot.id === selectedPot.id ? { ...pot, flower, level: 3 } : pot  // Set to level 3 for flowers
       )
     );
     setSelectedPot(null);
@@ -47,6 +55,7 @@ function Garden() {
                 bottom: '10px', 
                 transform: 'translateX(-50%)'  // Center the pot at the percentage point
               }}>
+              {/* Pot */}
               <img 
                 src={potImage}
                 alt="Pot"
@@ -58,6 +67,53 @@ function Garden() {
                 }}
                 onClick={() => handlePotClick(pot)}
               />
+              
+              {/* Conditionally render overlays based on level, positioned at the top of the pot */}
+              {pot.level === 1 && (
+                <img 
+                  src={stage1Image}
+                  alt="Stage 1"
+                  style={{ width: `${pot.size}px`, height: 'auto', position: 'absolute', bottom: '100%', left: '50%', transform: 'translateX(-50%)' }} // Adjusted position
+                />
+              )}
+              {pot.level === 2 && (
+                <img 
+                  src={stage2Image}
+                  alt="Stage 2"
+                  style={{ width: `${pot.size}px`, height: 'auto', position: 'absolute', bottom: '100%', left: '50%', transform: 'translateX(-50%)' }} // Adjusted position
+                />
+              )}
+              {pot.level === 3 && (
+                <>
+                  <img 
+                    src={stage25Image}
+                    alt="Stage 2.5"
+                    style={{ width: `${pot.size}px`, height: 'auto', position: 'absolute', bottom: '100%', left: '50%', transform: 'translateX(-50%)' }} // Adjusted position
+                  />
+                  {/* Conditionally render the flowers for each pot, constrained to the top of stage2.5.png and centered */}
+                  {pot.flower === 'Tulip' && (
+                    <img 
+                      src={tulipHead}
+                      alt="Tulip"
+                      style={{ width: `${pot.size / 2}px`, height: 'auto', position: 'absolute', bottom: 'calc(100% + 5px)', left: '50%', transform: 'translateX(-50%)' }} // Centered above
+                    />
+                  )}
+                  {pot.flower === 'Sunflower' && (
+                    <img 
+                      src={sunflower}
+                      alt="Sunflower"
+                      style={{ width: `${pot.size / 2}px`, height: 'auto', position: 'absolute', bottom: 'calc(100% + 5px)', left: '50%', transform: 'translateX(-50%)' }} // Centered above
+                    />
+                  )}
+                  {pot.flower === 'Daisy' && (
+                    <img 
+                      src={daisyHead}
+                      alt="Daisy"
+                      style={{ width: `${pot.size / 2}px`, height: 'auto', position: 'absolute', bottom: 'calc(100% + 5px)', left: '50%', transform: 'translateX(-50%)' }} // Centered above
+                    />
+                  )}
+                </>
+              )}
             </div>
           ))}
         </div>
