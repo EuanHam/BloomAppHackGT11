@@ -23,10 +23,8 @@ function Tasks() {
     const count = tasks.filter(task => task.isCompleted).length;
     setCompletedCount(count);
     
-    // Calculate completion percentage
     const completionPercentage = tasks.length >= 3 ? (count / tasks.length) * 100 : 0;
     
-    // Store completion percentage in localStorage
     localStorage.setItem("completionPercentage", completionPercentage.toString());
     
     localStorage.setItem("tasks", JSON.stringify(tasks));

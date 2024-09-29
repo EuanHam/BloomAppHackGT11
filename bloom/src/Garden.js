@@ -44,10 +44,25 @@ function Garden() {
 
   return (
     <div className="Garden">
-      <header className="Garden-header">
-        <Link to="/" onClick={() => { console.log("Tasks button clicked!") }}>
-          <img src={backButton} alt="Back Button" style={{ width: '150px', height: 'auto', cursor: 'pointer' }} />
-        </Link>
+      <header className="Garden-header" style={{ position: 'relative', width: '100%' }}>
+        <div style={{
+          position: 'absolute',
+          top: '20px',
+          right: '20px',
+          zIndex: 1000
+        }}>
+          <Link to="/" onClick={() => { console.log("Tasks button clicked!") }}>
+            <img 
+              src={backButton} 
+              alt="Back Button" 
+              style={{ 
+                width: '150px', 
+                height: 'auto', 
+                cursor: 'pointer'
+              }} 
+            />
+          </Link>
+        </div>
 
         <div className="pot-container">
           {pots.map((pot) => (

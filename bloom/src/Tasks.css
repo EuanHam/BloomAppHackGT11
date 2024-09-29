@@ -17,7 +17,7 @@
     position: absolute;
     top: 20px;
     right: 20px;
-    width: 100px;
+    width: 150px;
     height: auto;
     cursor: pointer;
   }
@@ -92,27 +92,24 @@
     cursor: pointer;
   }
   
-  /* Styles for the counter container */
   .counter-container {
-    position: relative; /* Relative positioning to act as a container */
-    display: inline-block; /* Inline-block to fit image size */
-    text-align: center; /* Center-align text within the container */
-    margin: 20px 0; /* Margin to separate from other elements */
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    margin: 20px 0;
   }
   
-  /* Background image styling */
   .counter-background {
-    width: 150px; /* Adjust size as needed */
-    height: auto; /* Maintain aspect ratio */
+    width: 150px;
+    height: auto;
   }
   
-  /* Styling for the counter text */
   .counter-text {
-    position: absolute; /* Absolute position relative to the container */
-    top: 25%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Adjust for perfect center alignment */
-    font-size: 1.5rem; /* Font size of the counter text */
-    font-weight: bold; /* Make the text bold */
-    color: #000000; /* Text color */
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000000;
   }

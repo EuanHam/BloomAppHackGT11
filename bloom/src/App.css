@@ -15,19 +15,19 @@
 }
 
 .App-header {
-  background-color: #676f6a; /* Dark background for the header */
+  background-color: #676f6a;
   background-image: url('./images/appBackground.png');
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover; /* Cover the entire area */
+  background-repeat: no-repeat;
+  background-size: cover;
 
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* Aligns content to the top */
+  justify-content: flex-start;
   font-size: calc(10px + 2vmin);
   color: rgb(23, 72, 33);
-  padding-top: 20px; /* Adds 20px of space from the top */
+  padding-top: 20px;
 }
 
 @keyframes App-logo-spin {
