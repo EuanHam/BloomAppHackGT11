@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './Tasks.css';
 import backButton from './images/back_button.png';
-import deleteIcon from './images/x_icon.png'; // Add an icon for delete button
+import deleteIcon from './images/x_icon.png'; // Icon for delete button
+import counterBackground from './images/task_counter.png'; // Image for counter background
 import { Link } from 'react-router-dom';
 
 function Tasks() {
@@ -16,9 +17,12 @@ function Tasks() {
   });
 
   const [date, setDate] = useState(new Date());
+  const [completedCount, setCompletedCount] = useState(0); // State for counting completed tasks
 
-  // Save tasks to localStorage whenever they change
+  // Update completed tasks count whenever tasks change
   useEffect(() => {
+    const count = tasks.filter(task => task.isCompleted).length;
+    setCompletedCount(count);
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
@@ -50,6 +54,13 @@ function Tasks() {
           <img src={backButton} alt="Back Button" className="back-button" />
         </Link>
         <p>Today is {date.toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</p>
+        
+        {/* Task Counter with Background Image */}
+        <div className="counter-container">
+          <img src={counterBackground} alt="Counter Background" className="counter-background" />
+          <span className="counter-text">{completedCount} / {tasks.length}</span> {/* Updated Counter */}
+        </div>
+        
         <div className="task-grid">
           {tasks.map((task, index) => (
             <div
@@ -67,7 +78,7 @@ function Tasks() {
               />
             </div>
           ))}
-          <div className="task-box add-task" onClick={addTask}>+</div>
+          <div className="task-box add-task" onClick={addTask}></div>
         </div>
       </header>
     </div>
