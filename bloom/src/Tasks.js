@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Tasks.css';
 import backButton from './images/back_button.png';
-import deleteIcon from './images/x_icon.png'; // Add an icon for delete button
+import deleteIcon from './images/back_button.png'; // Add an icon for delete button
 import { Link } from 'react-router-dom';
 
 function Tasks() {

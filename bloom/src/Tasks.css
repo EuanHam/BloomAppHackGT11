@@ -73,9 +73,9 @@
 
 .delete-icon {
   position: absolute;
-  top: 13px;
-  right: 0px;
-  width: 40px;
-  height: 40px;
+  top: 5px;
+  right: 5px;
+  width: 20px;
+  height: 20px;
   cursor: pointer;
 }
