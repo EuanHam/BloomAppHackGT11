@@ -33,31 +33,14 @@ function Garden() {
   }, []);
 
   const [pots, setPots] = useState([
-    { id: 1, position: '20%', size: 300, flower: '', level },
-    { id: 2, position: '50%', size: 300, flower: '', level },
-    { id: 3, position: '80%', size: 300, flower: '', level },
+    { id: 1, position: '20%', size: 300, flower: 'Sunflower', level },
+    { id: 2, position: '50%', size: 300, flower: 'Tulip', level },
+    { id: 3, position: '80%', size: 300, flower: 'Daisy', level },
   ]);
 
   useEffect(() => {
     setPots(prevPots => prevPots.map(pot => ({ ...pot, level })));
   }, [level]);
-
-  const [selectedPot, setSelectedPot] = useState(null);
-
-  const handlePotClick = (pot) => {
-    setSelectedPot(pot);
-  };
-
-  const handleFlowerSelect = (flower) => {
-    setPots((prevPots) =>
-      prevPots.map((pot) =>
-        pot.id === selectedPot.id ? { ...pot, flower, level: 3 } : pot
-      )
-    );
-    setSelectedPot(null);
-  };
-
-  const flowers = ['Daisy', 'Tulip', 'Sunflower'];
 
   return (
     <div className="Garden">
@@ -83,9 +66,7 @@ function Garden() {
                 style={{
                   width: `${pot.size}px`, 
                   height: 'auto',
-                  cursor: 'pointer',
                 }}
-                onClick={() => handlePotClick(pot)}
               />
               
               {pot.level === 1 && (
@@ -106,7 +87,7 @@ function Garden() {
                 <>
                   <img 
                     src={stage25Image}
-                    alt="Stage 2.5"
+                    alt="Stage 3"
                     style={{ width: `${pot.size}px`, height: 'auto', position: 'absolute', bottom: '100%', left: '50%', transform: 'translateX(-50%)' }}
                   />
                   {pot.flower === 'Tulip' && (
@@ -135,21 +116,6 @@ function Garden() {
             </div>
           ))}
         </div>
-
-        {selectedPot && (
-          <div className="popup" style={{ 
-            position: 'absolute', 
-            left: `${selectedPot.position}`, 
-            top: `${selectedPot.size + 10}px`
-          }}>
-            <p>Select a flower for this pot:</p>
-            {flowers.map((flower) => (
-              <button key={flower} onClick={() => handleFlowerSelect(flower)}>
-                {flower}
-              </button>
-            ))}
-          </div>
-        )}
       </header>
     </div>
   );
