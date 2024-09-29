@@ -12,7 +12,7 @@ import daisyHead from './images/daisyHead.png';
 
 function Garden() {
   // Hardcode the level for testing
-  const level = 2; // Change this value to test different levels
+  const level = 3; // Change this value to test different levels
 
   const [pots, setPots] = useState([
     { id: 1, position: '20%', size: 300, flower: '', level }, // Pot 1
@@ -95,25 +95,26 @@ function Garden() {
                     <img 
                       src={tulipHead}
                       alt="Tulip"
-                      style={{ width: `${pot.size / 2}px`, height: 'auto', position: 'absolute', bottom: 'calc(100% + 5px)', left: '50%', transform: 'translateX(-50%)' }} // Centered above
+                      style={{ width: `${pot.size / 1.5}px`, height: 'auto', position: 'absolute', bottom: `calc(100% + ${pot.size}px + 5px)`, left: '50%', transform: 'translateX(-50%)' }} // Adjusted position
                     />
                   )}
                   {pot.flower === 'Sunflower' && (
                     <img 
                       src={sunflower}
                       alt="Sunflower"
-                      style={{ width: `${pot.size / 2}px`, height: 'auto', position: 'absolute', bottom: 'calc(100% + 5px)', left: '50%', transform: 'translateX(-50%)' }} // Centered above
+                      style={{ width: `${pot.size / 1.5}px`, height: 'auto', position: 'absolute', bottom: `calc(100% + ${pot.size}px + 5px)`, left: '50%', transform: 'translateX(-50%)' }} // Adjusted position
                     />
                   )}
                   {pot.flower === 'Daisy' && (
                     <img 
                       src={daisyHead}
                       alt="Daisy"
-                      style={{ width: `${pot.size / 2}px`, height: 'auto', position: 'absolute', bottom: 'calc(100% + 5px)', left: '50%', transform: 'translateX(-50%)' }} // Centered above
+                      style={{ width: `${pot.size / 1.5}px`, height: 'auto', position: 'absolute', bottom: `calc(100% + ${pot.size}px + 5px)`, left: '50%', transform: 'translateX(-50%)' }} // Adjusted position
                     />
                   )}
                 </>
               )}
+
             </div>
           ))}
         </div>
