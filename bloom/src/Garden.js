@@ -9,7 +9,7 @@ import stage25Image from './images/stage3.png';
 import tulipHead from './images/tulipHead.png';
 import sunflower from './images/sunflowerHead.png';
 import daisyHead from './images/daisyHead.png';
-import tasksButton from './images/tasks_button.png';  // Importing tasks button image
+import tasksButton from './images/tasks_button.png';
 
 function Garden() {
   const [level, setLevel] = useState(0);

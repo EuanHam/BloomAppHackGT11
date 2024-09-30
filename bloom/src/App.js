@@ -9,7 +9,7 @@ function App() {
       <div className="App">
         <header className="App-header">
           <img src={logo} style={{ width: '900px', maxWidth: '90%', height: 'auto' }} alt="Logo" />
-          <h1 style={{ marginTop: '20px', backgroundColor: '#ffffff44' }}>Welcome!</h1>
+          <h1 style={{ marginTop: '20px'}}>Welcome!</h1>
           <p style={{ marginBottom: '20px', backgroundColor: '#ffffff44' }}>Complete daily mental health tasks to grow your virtual garden!!</p>
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
             <Link to="/tasks" onClick={() => { console.log("Tasks button clicked!") }}>
