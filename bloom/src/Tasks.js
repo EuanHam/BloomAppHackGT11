@@ -3,7 +3,7 @@ import './Tasks.css';
 import backButton from './images/back_button.png';
 import deleteIcon from './images/x_icon.png';
 import counterBackground from './images/task_counter.png';
-import gardenButton from './images/garden_button.png';  // Importing garden button image
+import gardenButton from './images/garden_button.png';
 import { Link } from 'react-router-dom';
 
 function Tasks() {
@@ -52,7 +52,6 @@ function Tasks() {
     <div className="Tasks">
       <header className="Tasks-header">
 
-        {/* Replacing the button with the image for Garden navigation */}
         <Link to="/garden">
           <img src={gardenButton} alt="Garden Button" className="garden-button" />
         </Link>

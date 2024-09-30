@@ -9,6 +9,7 @@ import stage25Image from './images/stage3.png';
 import tulipHead from './images/tulipHead.png';
 import sunflower from './images/sunflowerHead.png';
 import daisyHead from './images/daisyHead.png';
+import tasksButton from './images/tasks_button.png';  // Importing tasks button image
 
 function Garden() {
   const [level, setLevel] = useState(0);
@@ -45,16 +46,37 @@ function Garden() {
   return (
     <div className="Garden">
       <header className="Garden-header" style={{ position: 'relative', width: '100%' }}>
+        {/* Back Button */}
         <div style={{
           position: 'absolute',
           top: '20px',
           right: '20px',
           zIndex: 1000
         }}>
-          <Link to="/" onClick={() => { console.log("Tasks button clicked!") }}>
+          <Link to="/" onClick={() => { console.log("Back button clicked!") }}>
             <img 
               src={backButton} 
               alt="Back Button" 
+              style={{ 
+                width: '150px', 
+                height: 'auto', 
+                cursor: 'pointer'
+              }} 
+            />
+          </Link>
+        </div>
+
+        {/* Tasks Button */}
+        <div style={{
+          position: 'absolute',
+          top: '20px',
+          left: '20px',
+          zIndex: 1000
+        }}>
+          <Link to="/tasks" onClick={() => { console.log("Tasks button clicked!") }}>
+            <img 
+              src={tasksButton} 
+              alt="Tasks Button" 
               style={{ 
                 width: '150px', 
                 height: 'auto', 
