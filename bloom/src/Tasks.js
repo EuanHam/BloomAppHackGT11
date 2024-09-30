@@ -3,6 +3,7 @@ import './Tasks.css';
 import backButton from './images/back_button.png';
 import deleteIcon from './images/x_icon.png';
 import counterBackground from './images/task_counter.png';
+import gardenButton from './images/garden_button.png';  // Importing garden button image
 import { Link } from 'react-router-dom';
 
 function Tasks() {
@@ -26,7 +27,6 @@ function Tasks() {
     const completionPercentage = tasks.length >= 3 ? (count / tasks.length) * 100 : 0;
     
     localStorage.setItem("completionPercentage", completionPercentage.toString());
-    
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
@@ -51,9 +51,16 @@ function Tasks() {
   return (
     <div className="Tasks">
       <header className="Tasks-header">
+
+        {/* Replacing the button with the image for Garden navigation */}
+        <Link to="/garden">
+          <img src={gardenButton} alt="Garden Button" className="garden-button" />
+        </Link>
+
         <Link to="/" onClick={() => { console.log("Tasks button clicked!") }}>
           <img src={backButton} alt="Back Button" className="back-button" />
         </Link>
+
         <p>Today is {date.toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</p>
         
         <div className="counter-container">
