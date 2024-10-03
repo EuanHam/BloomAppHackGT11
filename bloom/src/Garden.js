@@ -10,14 +10,19 @@ import tulipHead from './images/tulipHead.png';
 import sunflower from './images/sunflowerHead.png';
 import daisyHead from './images/daisyHead.png';
 import tasksButton from './images/tasks_button.png';
+import sunflowerProgress0 from './images/sunflower_progress0.png';
+import sunflowerProgress1 from './images/sunflower_progress1.png';
+import sunflowerProgress2 from './images/sunflower_progress2.png';
+import sunflowerProgress3 from './images/sunflower_progress3.png';
 
 function Garden() {
   const [level, setLevel] = useState(0);
+  const [progressBarImage, setProgressBarImage] = useState(sunflowerProgress0);
 
   useEffect(() => {
     const completionPercentage = parseFloat(localStorage.getItem("completionPercentage") || "0");
     const tasks = JSON.parse(localStorage.getItem("tasks") || "[]");
-    
+
     if (tasks.length >= 3) {
       if (completionPercentage >= 100) {
         setLevel(3);
@@ -33,6 +38,23 @@ function Garden() {
     }
   }, []);
 
+  useEffect(() => {
+    // Update the progress bar image based on the level
+    switch (level) {
+      case 1:
+        setProgressBarImage(sunflowerProgress1);
+        break;
+      case 2:
+        setProgressBarImage(sunflowerProgress2);
+        break;
+      case 3:
+        setProgressBarImage(sunflowerProgress3);
+        break;
+      default:
+        setProgressBarImage(sunflowerProgress0);
+    }
+  }, [level]);
+
   const [pots, setPots] = useState([
     { id: 1, position: '20%', size: 300, flower: 'Sunflower', level },
     { id: 2, position: '50%', size: 300, flower: 'Tulip', level },
@@ -46,6 +68,22 @@ function Garden() {
   return (
     <div className="Garden">
       <header className="Garden-header" style={{ position: 'relative', width: '100%' }}>
+        
+        {/* Progress Bar */}
+        <div style={{
+          position: 'absolute',
+          top: '10px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          zIndex: 1000
+        }}>
+          <img 
+            src={progressBarImage} 
+            alt="Progress Bar" 
+            style={{ width: '200px', height: 'auto'}} 
+          />
+        </div>
+
         {/* Back Button */}
         <div style={{
           position: 'absolute',
